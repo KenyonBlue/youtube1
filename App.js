@@ -2,8 +2,7 @@
 
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
-// this is a package from react-native-vector-icons on github
-import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -14,16 +13,42 @@ export default class App extends Component<Props> {
           <Image source={require('./components/images/youtube-logo-png-photo-0.png')} style={{width: 98, height: 22}}/>
             <View style={styles.rightNav}>
               <TouchableOpacity>
-                <Icon style={styles.navItem} name="search" size={25}/>
+                <Image  source={require('./components/images/icons/search.png')}  style={{
+    width: 25,
+    height: 25,
+    resizeMode: 'contain',
+  }}/>
               </TouchableOpacity>
+              
               <TouchableOpacity>
-                <Icon  style={styles.navItem} name="account-circle" size={25}/>
+              <Image  source={require('./components/images/icons/profileicon.png')}  style={{
+    width: 25,
+    height: 25,
+    marginLeft:10,
+    resizeMode: 'contain',           
+  }}/>
               </TouchableOpacity>
             </View>
           </View>
           <View style={styles.body}>
             </View>
           <View style={styles.tabBar}>
+              <TouchableOpacity style={styles.tabItem} >
+              <Image  source={require('./components/images/icons/home.png')}  style={{ width: 25, height: 25, resizeMode: 'contain', }}/>
+              <Text style={styles.tabTitle} > Home </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.tabItem} >
+              <Image  source={require('./components/images/icons/fire.png')}  style={{ width: 25, height: 25, resizeMode: 'contain', }}/>
+              <Text style={styles.tabTitle} > Trending </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.tabItem} >
+              <Image  source={require('./components/images/icons/subscribe.png')}  style={{ width: 25, height: 25, resizeMode: 'contain', }}/>
+              <Text style={styles.tabTitle} > Subscribe </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.tabItem} >
+              <Image  source={require('./components/images/icons/library.png')}  style={{ width: 25, height: 25, resizeMode: 'contain', }}/>
+              <Text style={styles.tabTitle} > Library </Text>
+              </TouchableOpacity>
           </View>
       </View>
     );
@@ -34,7 +59,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
   navBar: {
     height: 55,
     backgroundColor: 'white',
@@ -46,17 +70,32 @@ const styles = StyleSheet.create({
   },
   rightNav: {
     flexDirection: 'row',
+    
   },
   navItem: {
     marginLeft: 25,
 
   },
-  tabBar: {
-    backgroundColor: 'red',
-    height: 60,
-    
-  },
   body: {
     flex: 1
-  }
+  },
+  tabBar: {
+    backgroundColor: 'white',
+    paddingHorizontal: 15,
+    height: 60,
+    borderTopWidth: 0.5,
+    borderColor: '#E5E5E5',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  tabItem: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+  },
+  tabTitle: {
+    fontSize: 11,
+    color: '#3c3c3c'
+
+  },
 });
