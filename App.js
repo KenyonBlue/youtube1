@@ -1,7 +1,9 @@
 
 
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList} from 'react-native';
+import VideoItem from './components/VideoItem';
+import data from './data.json';
 
 
 type Props = {};
@@ -31,6 +33,13 @@ export default class App extends Component<Props> {
             </View>
           </View>
           <View style={styles.body}>
+          <FlatList
+          data={data.items}
+          renderItem={(video)=><VideoItem video={video.item} />}
+          keyExtractor={(item)=>item.id}
+          ItemSeparatorComponent={()=><View style={{height:0.5, backgroundColor:'#E5E5E5'}}/>}
+
+           />
             </View>
           <View style={styles.tabBar}>
               <TouchableOpacity style={styles.tabItem} >
@@ -91,11 +100,12 @@ const styles = StyleSheet.create({
   tabItem: {
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
   tabTitle: {
     fontSize: 11,
-    color: '#3c3c3c'
-
+    color: '#3c3c3c',
+    paddingTop: 4,
   },
 });
+
+
